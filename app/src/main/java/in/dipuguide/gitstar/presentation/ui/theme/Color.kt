@@ -1,4 +1,4 @@
-package `in`.dipuguide.gitstar.ui.theme
+package `in`.dipuguide.gitstar.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
