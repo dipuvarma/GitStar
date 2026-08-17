@@ -1,10 +1,9 @@
 package `in`.dipuguide.gitstar.domain.repository
 
-import `in`.dipuguide.gitstar.domain.model.Item
+import `in`.dipuguide.gitstar.domain.model.GitItem
 
 interface GitRepo {
     suspend fun fetchGitRepo(
-        language: String,
         sort: String,
-    ): Result<List<Item>>
+    ): Result<List<GitItem>>
 }

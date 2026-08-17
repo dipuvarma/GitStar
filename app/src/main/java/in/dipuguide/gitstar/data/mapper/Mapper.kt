@@ -1,20 +1,10 @@
 package `in`.dipuguide.gitstar.data.mapper
 
-import `in`.dipuguide.gitstar.data.datasorce.remote.dto.ItemDto
-import `in`.dipuguide.gitstar.domain.model.Item
+import `in`.dipuguide.gitstar.data.datasorce.remote.dto.Item
+import `in`.dipuguide.gitstar.domain.model.GitItem
 
-fun ItemDto.toItem(): Item {
-    return Item(
-        id = id,
-        name = name,
-        description = description,
-        language = language,
-        starCount = starCount
-    )
-}
-
-fun Item.toItemDto(): ItemDto {
-    return ItemDto(
+fun Item.toItem(): GitItem {
+    return GitItem(
         id = id,
         name = name,
         description = description,

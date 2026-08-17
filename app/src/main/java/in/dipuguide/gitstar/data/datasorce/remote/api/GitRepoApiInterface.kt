@@ -8,8 +8,8 @@ interface GitRepoApiInterface {
 
     @GET("search/repositories")
     suspend fun fetchGitRepo(
-        @Query("language") language: String,
-        @Query("sort") sort: String,
+        @Query("q") q: String = "Q",
+        @Query("sort") sort: String = "stars",
     ): GitItemDto
 
 }
