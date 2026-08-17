@@ -4,8 +4,9 @@ import `in`.dipuguide.gitstar.data.datasorce.remote.api.GitRepoApiInterface
 import `in`.dipuguide.gitstar.data.mapper.toItem
 import `in`.dipuguide.gitstar.domain.model.Item
 import `in`.dipuguide.gitstar.domain.repository.GitRepo
+import javax.inject.Inject
 
-class GitRepoImpl(
+class GitRepoImpl @Inject constructor(
     private val apiInterface: GitRepoApiInterface,
 ) : GitRepo {
     override suspend fun fetchGitRepo(
