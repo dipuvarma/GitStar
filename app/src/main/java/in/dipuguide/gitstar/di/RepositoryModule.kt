@@ -2,18 +2,18 @@ package `in`.dipuguide.gitstar.di
 
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import `in`.dipuguide.gitstar.data.repository.GitRepoImpl
 import `in`.dipuguide.gitstar.domain.repository.GitRepo
 import javax.inject.Singleton
 
 @Module
-@InstallIn(Singleton::class)
-abstract class GitRepositoryModule {
+@InstallIn(SingletonComponent::class)
+abstract class RepositoryModule {
 
-    @Provides
     @Binds
+    @Singleton
     abstract fun bindsGitRepo(gitRepoImpl: GitRepoImpl): GitRepo
 
 }
