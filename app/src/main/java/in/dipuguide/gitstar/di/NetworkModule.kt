@@ -8,6 +8,7 @@ import `in`.dipuguide.gitstar.data.datasorce.remote.api.GitRepoApiInterface
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
@@ -16,9 +17,20 @@ object NetworkModule {
 
     @Provides
     @Singleton
+    fun buildOkHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder()
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
+            .build()
+    }
+
+    @Provides
+    @Singleton
     fun buildRetrofitApi(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(GIT_API_BASE_URL)
+            .client(buildOkHttpClient())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

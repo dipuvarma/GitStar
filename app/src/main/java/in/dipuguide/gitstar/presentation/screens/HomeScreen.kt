@@ -9,8 +9,4 @@ fun HomeScreen(
      homeViewModel: HomeViewModel = hiltViewModel(),
 ) {
 
-    LaunchedEffect(true) {
-        homeViewModel.loadData()
-    }
-
 }

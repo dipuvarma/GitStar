@@ -13,12 +13,18 @@ class HomeViewModel @Inject constructor(
     private val gitRepo: GitRepo,
 ) : ViewModel() {
 
-    fun loadData(){
+    init {
+        loadData()
+    }
+
+    fun loadData() {
         viewModelScope.launch {
             gitRepo.fetchGitRepo(
                 "stars"
             ).onSuccess { items ->
                 Log.d("TAG", "$items")
+            }.onFailure { e ->
+                Log.d("TAG", "FAILED: $e")
             }
         }
     }
